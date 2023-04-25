@@ -1,160 +1,93 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Flight Details</title>
-    <style>
-        /* Style for the centered menu */
-
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            height: 100px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav li {
-            margin-right: 20px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        main {
-            margin: 0 auto;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 100px;
-        }
-
-        #search {
-            float: right;
-            margin-top: 15px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .section-header h2 {
-            margin: 0;
-        }
-
-        #search {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        .flight-info {
-            display: flex;
-            align-items: left;
-            justify-content: left;
-            margin-top: 50px;
-            margin-left: 50px;
-        }
-
-        .flight-info img {
-            height: 100px;
-            margin-right: 20px;
-        }
-
-        .flight-details {
-            text-align: left;
-        }
-
-
-        .flight-details p {
-            font-size: 16px;
-            margin: 5px 0;
-        }
-
-        .expected-departure {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            font-size: 24px;
-        }
-
-        .flight-status {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
-            margin-left: 50px;
-            margin-right: 50px;
-        }
-
-        .flight-status-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 45%;
-        }
-    </style>
+    <head>
+        <meta charset="utf-8">
+		<!-- Latest compiled and minified CSS CDN -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<!-- jQuery library CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper JS CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript CDN -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<!-- Website Stylesheet -->
+		<link rel="stylesheet" type="text/css" href="detailsstyle.css">
+        <!-- Icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<!-- Ubuntu Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+		<!-- Nanum Gothic Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+		<!-- Abel Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+        <!-- Title -->
+        <title>Flight Details</title>
 </head>
-
 <body>
-
+    <!-- Navbar -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="departures_arrivals.html">Departures & Arrivals</a></li>
-                <li><a href="details.php">Flight Info</a></li>
-                <li><a href="flight_statistics.html">Flight Statistics</a></li>
-            </ul>
-        </nav>
-        <h2>Flight Information</h2>
+
+        <nav class="main-nav navbar navbar-expand-md navbar-light">
+			<img src="images/logo2.png" style="width:150px;" id="logo2" alt="logo">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="main-nav navbar-nav d-inline-flex">
+					<li class="nav-item">
+						<a class="nav-link text-white" href="index.html">HOMEPAGE</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="details.php">FLIGHT INFORMATION</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="#">FLIGHT STATISTICS</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+        
     </header>
+
     <main>
-    <?php include 'PHP API scripts/flight_details.php' ?>
-        <section>
-            <div class="section-header">
-                
+        <div class="jumbotron jumbotron-fluid">
+            
+                <?php include 'PHP API scripts/flight_details.php' ?>
+                <section>
+                    <div class="section-header">
+                    <h2>Flight Information</h2>
+                    <form id="search" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <div class="box">
+                            <input type="text" name="flight_iata" placeholder="Flight search">
+                            <a href="#"><i class="fa-solid fa-magnifying-glass ml-3" id="icon"></i></a>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="row">
+                        <div class="flight-info">
+                            <img src="images/british-airways-logo.png" alt="Company Logo" style="border: 2px solid black; color:#5c5f64;">
+                        </div>
+                        <div class="flight-details">
+                            <p style="color:#5c5f64;">Flight Name: <?php if (!empty($flight_name)) { echo $flight_name; } ?> </p>
+                            <p style="color:#5c5f64;">Flight Number: <?php if (!empty($flight_number)) { echo $flight_number; } ?></p>
+                            <p style="color:#5c5f64;">Destination Code / Arrival Code: <?php if (!empty($destination_code)) { echo $destination_code; } ?></p>
+                        </div>
+                    </div>
 
-<form id="search" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <input type="text" name="flight_iata" placeholder="Flight search">
-    <button type="submit">Go</button>
-</form>
-
-            </div>
-            <div class="flight-info">
-                <img src="" alt="Company Logo">
-                <div class="flight-details">
-                    <p>Flight Name: <?php if (!empty($flight_name)) { echo $flight_name; } ?> </p>
-                    <p>Flight Number: <?php if (!empty($flight_number)) { echo $flight_number; } ?></p>
-                    <p>Destination Code / Arrival Code: <?php if (!empty($destination_code)) { echo $destination_code; } ?></p>
-                </div>
-            </div>
             <div class="expected-departure">
                 <p>Expected to Depart at:<?php if (!empty($expected_departure_time)) { echo $expected_departure_time; } ?></p>
             </div>
+        </div>
+        <div class="mainContainer container-fluid">
             <div class="flight-status">
-                <div class="flight-status-box">
+                <div class="flight-status-box" id="flightsWell1">
                     <h3>Departure Information</h3>
-                   
                     <p>Airport Name: <?php if (!empty($airport_name_dep)) { echo $airport_name_dep; } ?> </p>
                     <p>Airport Code: <?php if (!empty($airport_code_dep)) { echo $airport_code_dep; } ?> </p>
                     <p>Airport Location: <?php if (!empty($airport_location_dep)) { echo $airport_location_dep; } ?> </p>
@@ -163,7 +96,7 @@
                     <p>Takeoff Time:  <?php if (!empty($takeoff_time)) { echo $takeoff_time; }; ?> </p>
                     <p>Status: <?php if (!empty($status)) { echo $status; }; ?> </p>
                 </div>
-                <div class="flight-status-box">
+                <div class="flight-status-box" id="flightsWell2">
                     <h3>Arrival Information</h3>
                     <p>Airport Name: <?php if (!empty($airport_name_arr)) { echo $airport_name_arr; }; ?> </p>
                     <p>Airport Code: <?php if (!empty($airport_code_arr)) { echo $airport_code_arr; }; ?>
@@ -174,7 +107,7 @@
                     <p>Status: <?php if (!empty($status)) { echo $status; }; ?> </p>
                 </div>
             </div>
-        </section>
+        </div>
         </section>
     </main>
     <footer>
