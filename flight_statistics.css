@@ -20,8 +20,9 @@ h2 {
 h3 {
 	font-size: 25px;
 	font-family: Abel, sans-serif;
-	font-weight: bold; 
+	font-weight: bolder; 
 	text-align: center;
+	color: #494c50;
 }
 
 p {
