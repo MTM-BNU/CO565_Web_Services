@@ -1,3 +1,12 @@
+<?php
+
+    if(!isset($_POST['submit']))
+    {
+        header("Location: details_search.php");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -58,14 +67,14 @@
     <main>
         <div class="jumbotron jumbotron-fluid">
             
-                <?php include 'PHP API scripts/flight_details.php' ?>
+                <?php include 'PHP API scripts/flight_details.php'; ?>
                 <section>
                     <div class="section-header">
                     <h2>Flight Information</h2>
                     <form id="search" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <div class="box">
                             <input type="text" name="flight_iata" placeholder="Flight search">
-                            <a href="#"><i class="fa-solid fa-magnifying-glass ml-3" id="icon"></i></a>
+                            <button class="btn" type="submit" name="submit"><i class="fa-solid fa-magnifying-glass ml-3" id="icon"></i></button>
                         </div>
                     </form>
                     </div>
