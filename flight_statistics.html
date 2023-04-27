@@ -3,145 +3,74 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <head>
-    <title>Flight Statistics</title>
-    <style>
-        /* Style for the centered menu */
-
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            height: 100px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav li {
-            margin-right: 20px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        main {
-            margin: 0 auto;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 100px;
-        }
-
-        #search {
-            float: right;
-            margin-top: 15px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .section-header h2 {
-            margin: 0;
-        }
-
-        #search {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        .flight-info {
-            display: flex;
-            align-items: left;
-            justify-content: left;
-            margin-top: 50px;
-            margin-left: 50px;
-        }
-
-        .flight-info img {
-            height: 100px;
-            margin-right: 20px;
-        }
-
-        .flight-details {
-            text-align: left;
-        }
-
-
-        .flight-details p {
-            font-size: 16px;
-            margin: 5px 0;
-        }
-
-        .delay_title {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            font-size: 24px;
-        }
-
-        .flight-delays {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
-            margin-left: 50px;
-            margin-right: 50px;
-        }
-
-        .flight-delay-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 45%;
-        }
-    </style>
+    <meta charset="utf-8">
+		<!-- Latest compiled and minified CSS CDN -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<!-- jQuery library CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper JS CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript CDN -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<!-- Website Stylesheet -->
+		<link rel="stylesheet" type="text/css" href="flight_statistics.css">
+        <!-- Icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<!-- Ubuntu Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+		<!-- Nanum Gothic Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+		<!-- Abel Font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+		<!-- Title -->
+		<title>Flight Statistics | London Luton Airport</title>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="departures_arrivals.html">Departures & Arrivals</a></li>
-                <li><a href="flight_info.html">Flight Info</a></li>
-                <li><a href="flight_statistics.html">Flight Statistics</a></li>
-            </ul>
-        </nav>
-        <h2>Flight Statistics</h2>
-    </header>
+   <!-- Navbar -->
+		<nav class="main-nav navbar navbar-expand-md navbar-light">
+			<img src="images/logo2.png" style="width:150px;" id="logo2" alt="logo">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="main-nav navbar-nav d-inline-flex">
+					<li class="nav-item">
+						<a class="nav-link text-white" href="index.html">HOMEPAGE</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="details.php">FLIGHT INFORMATION</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" href="flight_statistics.html">FLIGHT STATISTICS</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+        <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true"></a>
+		<!-- Introductory Jumbotron -->
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<img src="images/logo.png" id="logo" alt="logo">
+				<!-- <h1>London Luton Airport</h1> -->
+				<h2> Flight Statistics</h2>
+			</div>
+		</div>
     <main>
         <section>
-            <div class="section-header">
-                <form id="search">
-                    <input type="text" placeholder="Flight search">
-                    <button type="submit">Go</button>
-                </form>
-            </div>
             <div class="delay_title">
-                <p> Average delay time today:</p>
+                <h2> Average delay time today:</h2>
             </div>
             <div class="flight-delays">
                 <div class="flight-delay-box">
-                    <h3>Departure Delay Information</h3>
+                    <h3>Departure Delay Information 🛫</h3>
                     <div id="dept_chart" style="width:100%; max-width:600px; height:500px;"></div>
 
                     <script>
@@ -169,7 +98,7 @@
                     
                 </div>
                 <div class="flight-delay-box">
-                    <h3>Arrival Delay Information</h3>
+                    <h3>Arrival Delay Information 🛬</h3>
                     <div id="arv_chart" style="width:100%; max-width:600px; height:500px;"></div>
                     <script>
                         google.charts.load('current', {'packages':['corechart']});
