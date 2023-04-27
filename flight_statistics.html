@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<head>
+    <title>Flight Statistics</title>
+    <style>
+        /* Style for the centered menu */
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            height: 100px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            margin: 0 auto;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        #search {
+            float: right;
+            margin-top: 15px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            margin: 0;
+        }
+
+        #search {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .flight-info {
+            display: flex;
+            align-items: left;
+            justify-content: left;
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+        .flight-info img {
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .flight-details {
+            text-align: left;
+        }
+
+
+        .flight-details p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .delay_title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 24px;
+        }
+
+        .flight-delays {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .flight-delay-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 45%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="departures_arrivals.html">Departures & Arrivals</a></li>
+                <li><a href="flight_info.html">Flight Info</a></li>
+                <li><a href="flight_statistics.html">Flight Statistics</a></li>
+            </ul>
+        </nav>
+        <h2>Flight Statistics</h2>
+    </header>
+    <main>
+        <section>
+            <div class="section-header">
+                <form id="search">
+                    <input type="text" placeholder="Flight search">
+                    <button type="submit">Go</button>
+                </form>
+            </div>
+            <div class="delay_title">
+                <p> Average delay time today:</p>
+            </div>
+            <div class="flight-delays">
+                <div class="flight-delay-box">
+                    <h3>Departure Delay Information</h3>
+                    <div id="dept_chart" style="width:100%; max-width:600px; height:500px;"></div>
+
+                    <script>
+                    google.charts.load('current', {'packages':['corechart']});
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                    ['Delay Time', 'Number of delays today'],
+                    ['30 min',43],
+                    ['45 min',30],
+                    ['60 min ',24],
+                    ['75 min',5],
+                    ['90 min',2]
+                    ]);
+
+                    var options = {
+                    title:'Delays in Departues'
+                    };
+
+                    var chart = new google.visualization.ColumnChart(document.getElementById('dept_chart'));
+                    chart.draw(data, options);
+                    }
+                    </script>
+                    
+                </div>
+                <div class="flight-delay-box">
+                    <h3>Arrival Delay Information</h3>
+                    <div id="arv_chart" style="width:100%; max-width:600px; height:500px;"></div>
+                    <script>
+                        google.charts.load('current', {'packages':['corechart']});
+                        google.charts.setOnLoadCallback(drawChart);
+                        
+                        function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                          ['Delay Time', 'Number of delays today'],
+                          ['30 min',29],
+                          ['45 min',10],
+                          ['60 min ',4],
+                          ['75 min',1],
+                          ['90 min',2]
+                        ]);
+                        
+                        var options = {
+                          title:'Delays in Arrivals'
+                        };
+                        
+                        var chart = new google.visualization.ColumnChart(document.getElementById('arv_chart'));
+                          chart.draw(data, options);
+                        }
+                        </script>
+                        
+                    
+                </div>
+            </div>
+            <div class="mainContainer container-fluid">
+                <!-- Row with wells containing arrivals and departures -->
+                <div class="row">
+                    <div class="col" id="flightsWell1">
+                            <h3>Delays</h3>
+                                <table class = "table1">
+                                    <tr>
+                                        <th>FLIGHT No.</th> 
+                                        <th>CARRIER</th> 
+                                        <th>DESTINATION</th> 
+                                        <th>SCHEDULED</th> 
+                                        <th>EXPECTED</th> 
+                                        <th>STATUS</th>
+                                    </tr>
+                                </table>
+                    </div>
+        </section>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Flights Website Project. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
