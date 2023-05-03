@@ -47,7 +47,7 @@
 						<a class="nav-link text-white" href="details.php">FLIGHT INFORMATION</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="flight_statistics.html">FLIGHT STATISTICS</a>
+						<a class="nav-link text-white" href="flight_statistics.php">FLIGHT STATISTICS</a>
 					</li>
 				</ul>
 			</div>

@@ -1,3 +1,10 @@
+<?php
+
+include 'PHP API scripts/arrival_details.php';
+include 'PHP API scripts/departure_details.php';
+
+?>
+
 <!DOCTYPE html>
 <html>	
 	<head>
@@ -61,10 +68,10 @@
 					<!-- Search Bar -->
 					<div class="row justify-content-center">
 						<form id="search" class="d-flex align-items-center" method="POST" 
-						action="<?php echo $_SERVER['PHP_SELF']; ?> href="details.php">
+						action="details.php">
 							<div class="box">
-								<input type="text" id="search-bar"  placeholder="Flight No. or Destination">
-								<a href="details.php"><i class="fa-solid fa-magnifying-glass ml-3" id="icon"></i></a>
+								<input type="text"  name="flight_iata" id="search-bar"  placeholder="Flight No. or Destination">
+								<button class="btn" type="submit" name="submit"><i class="fa-solid fa-magnifying-glass ml-3" id="icon"></i></button>
 							</div>
 						</form>
 					</div>
@@ -86,20 +93,18 @@
 								<th>EXPECTED</th>
 								<th>STATUS</th>
 							</tr>
-							<?php include 'PHP API scripts/departure_details.php' ?>
 							<?php
-								$flight_number = array("flight_number");
 
-								foreach ($flight_number as $value) 
+								foreach ($departures['response'] as $flight) 
 								{
   									echo 
 									"<tr>
-									<td><?php if (!empty($flight_number)) { echo $flight_number; } ?></td>
-									<td><?php if (!empty($carrier)) { echo $carrier; } ?></td>
-									<td><?php if (!empty($destination_code)) { echo $destination_code; } ?></td>
-									<td><?php if (!empty($scheduled_dep)) { echo $scheduled_dep; } ?></td>
-									<td><?php if (!empty($expected_dep)) { echo $expected_dep; } ?></td>
-									<td><?php if (!empty($status)) { echo $status; } ?></td>
+									<td style='color:yellow'>" . $flight['flight_iata'] . "</td>
+									<td style='color:yellow'>" . $flight['airline_icao'] . "</td>
+									<td style='color:yellow'>" . $flight['arr_iata'] . "</td>
+									<td style='color:yellow'>" . date('H:i:s', strtotime($flight['dep_time'])) . "</td>
+									<td style='color:yellow'>" . date('H:i:s', strtotime($flight['dep_estimated'])) . "</td>
+									<td style='color:yellow'>" . $flight['status'] . "</td>
 									</tr>";
 								}
 							?>
@@ -118,16 +123,17 @@
 								<th>STATUS</th>
                             </tr>
 							<?php 
-								for ($arr = 0; $arr <= 10; $arr++) 
+
+								foreach ($arrivals['response'] as $flight) 
 								{
-									echo 
+  									echo 
 									"<tr>
-									<td><?php if (!empty($flight_number)) { echo $flight_number; } ?></td>
-									<td><?php if (!empty($carrier)) { echo $carrier; } ?></td>
-									<td><?php if (!empty($origin_code)) { echo $origin_code; } ?></td>
-									<td><?php if (!empty($scheduled_arr)) { echo $scheduled_arr; } ?></td>
-									<td><?php if (!empty($expected_arr)) { echo $expected_dep; } ?></td>
-									<td><?php if (!empty($status)) { echo $status; } ?></td>
+									<td style='color:yellow'>" . $flight['flight_iata'] . "</td>
+									<td style='color:yellow'>" . $flight['airline_icao'] . "</td>
+									<td style='color:yellow'>" . $flight['dep_iata'] . "</td>
+									<td style='color:yellow'>" . date('H:i:s', strtotime($flight['arr_time'])) . "</td>
+									<td style='color:yellow'>" . date('H:i:s', strtotime($flight['arr_estimated'])) . "</td>
+									<td style='color:yellow'>" . $flight['status'] . "</td>
 									</tr>";
 								}
 							?>
