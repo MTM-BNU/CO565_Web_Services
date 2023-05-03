@@ -33,5 +33,3 @@ $expected_departure_time = date('H:i:s', strtotime($data['response']['dep_estima
 } 
 ?>
 
-
-

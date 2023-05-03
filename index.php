@@ -47,7 +47,7 @@
 						<a class="nav-link text-white" href="details.php">FLIGHT INFORMATION</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="flight_statistics.html">FLIGHT STATISTICS</a>
+						<a class="nav-link text-white" href="#">FLIGHT STATISTICS</a>
 					</li>
 				</ul>
 			</div>
@@ -87,7 +87,21 @@
 								<th>EXPECTED</th>
 								<th>STATUS</th>
 							</tr>
-							
+							<?php include 'PHP API scripts/departure_details.php' ?>
+							<?php 
+								for ($dep = 0; $dep <= 10; $dep++) 
+								{ 
+									echo
+									"<tr>
+									<td><?php if (!empty($flight_number)) { echo $flight_number; } ?></td>
+									<td><?php if (!empty($carrier)) { echo $carrier; } ?></td>
+									<td><?php if (!empty($destination_code)) { echo $destination_code; } ?></td>
+									<td><?php if (!empty($scheduled_dep)) { echo $scheduled_dep; } ?></td>
+									<td><?php if (!empty($expected_dep)) { echo $expected_dep; } ?></td>
+									<td><?php if (!empty($status)) { echo $status; } ?></td>
+									</tr>";
+								}
+							?>
 						</table>
 				</div>
 				<div class="col-md-12 col-lg-6 text-center" id="flightsWell2">
@@ -102,6 +116,20 @@
 								<th>EXPECTED</th> 
 								<th>STATUS</th>
                             </tr>
+							<?php 
+								for ($arr = 0; $arr <= 10; $arr++) 
+								{
+									echo 
+									"<tr>
+									<td><?php if (!empty($flight_number)) { echo $flight_number; } ?></td>
+									<td><?php if (!empty($carrier)) { echo $carrier; } ?></td>
+									<td><?php if (!empty($origin_code)) { echo $origin_code; } ?></td>
+									<td><?php if (!empty($scheduled_arr)) { echo $scheduled_arr; } ?></td>
+									<td><?php if (!empty($expected_arr)) { echo $expected_dep; } ?></td>
+									<td><?php if (!empty($status)) { echo $status; } ?></td>
+									</tr>";
+								}
+							?>
                         </table>
 				</div>
 			</div>
