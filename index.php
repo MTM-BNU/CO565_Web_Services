@@ -10,8 +10,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<!-- Latest compiled JavaScript CDN -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		<!-- JQuery -->
-		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 		<!-- Website Stylesheet -->
 		<link rel="stylesheet" type="text/css" href="indexstyle.css">
         <!-- Icon library -->
@@ -41,13 +39,13 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="main-nav navbar-nav d-inline-flex">
 					<li class="nav-item">
-						<a class="nav-link text-white" href="index.html">HOMEPAGE</a>
+						<a class="nav-link text-white" href="index.php">HOMEPAGE</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link text-white" href="details.php">FLIGHT INFORMATION</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="flight_statistics.html">FLIGHT STATISTICS</a>
+						<a class="nav-link text-white" href="#">FLIGHT STATISTICS</a>
 					</li>
 				</ul>
 			</div>
@@ -62,10 +60,11 @@
 				<h2>Search Flights</h2>
 					<!-- Search Bar -->
 					<div class="row justify-content-center">
-						<form id="search" class="d-flex align-items-center">
+						<form id="search" class="d-flex align-items-center" method="POST" 
+						action="<?php echo $_SERVER['PHP_SELF']; ?> href="details.php">
 							<div class="box">
 								<input type="text" id="search-bar"  placeholder="Flight No. or Destination">
-								<a href="#"><i class="fa-solid fa-magnifying-glass ml-3" id="icon"></i></a>
+								<a href="details.php"><i class="fa-solid fa-magnifying-glass ml-3" id="icon"></i></a>
 							</div>
 						</form>
 					</div>
@@ -87,7 +86,23 @@
 								<th>EXPECTED</th>
 								<th>STATUS</th>
 							</tr>
-							
+							<?php include 'PHP API scripts/departure_details.php' ?>
+							<?php
+								$flight_number = array("flight_number");
+
+								foreach ($flight_number as $value) 
+								{
+  									echo 
+									"<tr>
+									<td><?php if (!empty($flight_number)) { echo $flight_number; } ?></td>
+									<td><?php if (!empty($carrier)) { echo $carrier; } ?></td>
+									<td><?php if (!empty($destination_code)) { echo $destination_code; } ?></td>
+									<td><?php if (!empty($scheduled_dep)) { echo $scheduled_dep; } ?></td>
+									<td><?php if (!empty($expected_dep)) { echo $expected_dep; } ?></td>
+									<td><?php if (!empty($status)) { echo $status; } ?></td>
+									</tr>";
+								}
+							?>
 						</table>
 				</div>
 				<div class="col-md-12 col-lg-6 text-center" id="flightsWell2">
@@ -102,6 +117,20 @@
 								<th>EXPECTED</th> 
 								<th>STATUS</th>
                             </tr>
+							<?php 
+								for ($arr = 0; $arr <= 10; $arr++) 
+								{
+									echo 
+									"<tr>
+									<td><?php if (!empty($flight_number)) { echo $flight_number; } ?></td>
+									<td><?php if (!empty($carrier)) { echo $carrier; } ?></td>
+									<td><?php if (!empty($origin_code)) { echo $origin_code; } ?></td>
+									<td><?php if (!empty($scheduled_arr)) { echo $scheduled_arr; } ?></td>
+									<td><?php if (!empty($expected_arr)) { echo $expected_dep; } ?></td>
+									<td><?php if (!empty($status)) { echo $status; } ?></td>
+									</tr>";
+								}
+							?>
                         </table>
 				</div>
 			</div>
