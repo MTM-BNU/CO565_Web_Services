@@ -36,7 +36,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
         <!-- Title -->
-        <title>Flight Details</title>
+        <title>Flight Details | London Luton Airport</title>
 </head>
 <body>
     <!-- Navbar -->
@@ -50,13 +50,13 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="main-nav navbar-nav d-inline-flex">
 					<li class="nav-item">
-						<a class="nav-link text-white" href="index.html">HOMEPAGE</a>
+						<a class="nav-link text-white" href="index.php">HOMEPAGE</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link text-white" href="details.php">FLIGHT INFORMATION</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="#">FLIGHT STATISTICS</a>
+						<a class="nav-link text-white" href="flight_statistics.html">FLIGHT STATISTICS</a>
 					</li>
 				</ul>
 			</div>
