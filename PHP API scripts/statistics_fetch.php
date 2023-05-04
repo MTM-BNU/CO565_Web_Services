@@ -14,10 +14,10 @@
      */
     function getDelay($airline_icao, $type, $endpoint)
     {
-        $url = "https://localhost/pandaAPI/delays";
+        $url = "https://bold-kilby.44-195-253-114.plesk.page/pandaAPI/delays";
 
         if($endpoint)
-            url .= "/" . $endpoint; 
+            $url .= "/" . $endpoint; 
 
         if($airline_icao)
         {
@@ -43,9 +43,9 @@
         $response = file_get_contents($url);
         $data = json_decode($response, true);
         
-        if (isset($data)) 
-        {
-            return $data;
-        } 
+        return $data;
+
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
     }
 ?>

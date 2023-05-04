@@ -1,5 +1,5 @@
 body {
-    background-image: url("images/LLG_new.jpg"); 
+    background-image: url("./images/LLG_new.jpg"); 
     background-position: center; 
 }
 
@@ -214,15 +214,9 @@ th,td {
 }
 
 .btn {
-	color: #5c5f64;
-    border-color: #5c5f64;
-	font-family: Ubuntu, sans-serif;
+	background: transparent; 
+	border:0;
 }
-
-.btn:hover {
-	background-color: #e23f50;
-	color: #fff;
-}	
 
 footer {
 	text-align: center;
