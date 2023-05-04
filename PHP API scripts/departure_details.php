@@ -1,6 +1,6 @@
 <?php
 
-$api_key = {{API_KEY}}};
+$api_key = {{API_KEY}};
 $dep_iata = "LTN";
 
 $url = "https://airlabs.co/api/v9/schedules?dep_iata=$dep_iata&api_key=$api_key";
