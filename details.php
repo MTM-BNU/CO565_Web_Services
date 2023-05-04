@@ -91,6 +91,8 @@
 
             <div class="expected-departure">
                 <p>Expected to Depart at:<?php if (!empty($expected_departure_time)) { echo $expected_departure_time; } ?></p>
+                <i class="fa-sharp fa-solid fa-plane"></i>
+                <div class="line"></div>
             </div>
         </div>
         <div class="mainContainer container-fluid">

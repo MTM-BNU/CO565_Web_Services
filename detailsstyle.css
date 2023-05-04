@@ -206,6 +206,17 @@ footer {
     color: #5c5f64;
 }
 
+.fa-sharp {
+    display: flex;
+}
+
+.line {
+    width: 90%;
+    height: 1px;
+    background-color: black;
+    margin: 20px auto; 
+}
+
 .flight-status {
     display: flex;
     justify-content: space-between;
