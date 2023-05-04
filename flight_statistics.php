@@ -20,7 +20,7 @@
 		<!-- Latest compiled JavaScript CDN -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<!-- Website Stylesheet -->
-		<link rel="stylesheet" type="text/css" href="flight_statistics.css">
+		<link rel="stylesheet" type="text/css" href="css/flight_statistics.css">
         <!-- Icon library -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 		<!-- Ubuntu Font -->
@@ -42,7 +42,7 @@
 <body>
    <!-- Navbar -->
 		<nav class="main-nav navbar navbar-expand-md navbar-light">
-			<img src="images/logo2.png" style="width:150px;" id="logo2" alt="logo">
+			<img src="css/images/logo2.png" style="width:150px;" id="logo2" alt="logo">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -65,7 +65,7 @@
 		<!-- Introductory Jumbotron -->
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
-				<img src="images/logo.png" id="logo" alt="logo">
+				<img src="css/images/logo.png" id="logo" alt="logo">
 				<!-- <h1>London Luton Airport</h1> -->
 				<h2> Flight Statistics</h2>
 			</div>
@@ -73,8 +73,8 @@
     <main>
         <section>
             <div class="delay_title" style="background:red;">
-                <h2> Average delay time today at Arrivals: <?php echo $delayArrivals['delay_average'];?> min.</h2>
-                <h2> Average delay time today at Departures: <?php echo $delayDepartures['delay_average'];?> min.</h2>
+                <h2> Average delay time today at Arrivals: <?php if(empty($delayArrivals['delay_average'])) echo 0; else echo $delayArrivals['delay_average'];?> min.</h2>
+                <h2> Average delay time today at Departures: <?php if(empty($delayDepartures)) echo 0; else echo $delayDepartures['delay_average'];?> min.</h2>
             </div>
             <div class="flight-delays">
                 <div class="flight-delay-box">

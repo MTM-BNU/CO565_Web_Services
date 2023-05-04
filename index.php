@@ -18,7 +18,7 @@ include 'PHP API scripts/departure_details.php';
 		<!-- Latest compiled JavaScript CDN -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<!-- Website Stylesheet -->
-		<link rel="stylesheet" type="text/css" href="indexstyle.css">
+		<link rel="stylesheet" type="text/css" href="css/indexstyle.css">
         <!-- Icon library -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 		<!-- Ubuntu Font -->
@@ -39,7 +39,7 @@ include 'PHP API scripts/departure_details.php';
 	<body>
 		<!-- Navbar -->
 		<nav class="main-nav navbar navbar-expand-md navbar-light">
-			<img src="images/logo2.png" style="width:150px;" id="logo2" alt="logo">
+			<img src="css/images/logo2.png" style="width:150px;" id="logo2" alt="logo">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -52,7 +52,7 @@ include 'PHP API scripts/departure_details.php';
 						<a class="nav-link text-white" href="details.php">FLIGHT INFORMATION</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-white" href="#">FLIGHT STATISTICS</a>
+						<a class="nav-link text-white" href="flight_statistics.php">FLIGHT STATISTICS</a>
 					</li>
 				</ul>
 			</div>
@@ -62,7 +62,7 @@ include 'PHP API scripts/departure_details.php';
 		<!-- Introductory Jumbotron -->
 		<div class="jumbotron jumbotron-fluid">
 			<div class="container">
-				<img src="images/logo.png" id="logo" alt="logo">
+				<img src="css/images/logo.png" id="logo" alt="logo">
 				<!-- <h1>London Luton Airport</h1> -->
 				<h2>Search Flights</h2>
 					<!-- Search Bar -->

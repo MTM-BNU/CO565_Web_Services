@@ -1,9 +1,14 @@
 <?php
 
-
+    include 'PHP API scripts/flight_details.php';
+    
     if(!isset($_POST['submit']))
     {
         header("Location: details_search.php");
+    }
+    else if(isset($_POST['submit']) && empty($destination_code))
+    {
+        header("Location: details_search.php?message=error");
     }
 
 ?>
@@ -21,7 +26,7 @@
 		<!-- Latest compiled JavaScript CDN -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<!-- Website Stylesheet -->
-		<link rel="stylesheet" type="text/css" href="detailsstyle.css">
+		<link rel="stylesheet" type="text/css" href="css/detailsstyle.css">
         <!-- Icon library -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 		<!-- Ubuntu Font -->
@@ -44,7 +49,7 @@
     <header>
 
         <nav class="main-nav navbar navbar-expand-md navbar-light">
-			<img src="images/logo2.png" style="width:150px;" id="logo2" alt="logo">
+			<img src="css/images/logo2.png" style="width:150px;" id="logo2" alt="logo">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -67,8 +72,6 @@
 
     <main>
         <div class="jumbotron jumbotron-fluid">
-            
-                <?php include 'PHP API scripts/flight_details.php'; ?>
                 <section>
                     <div class="section-header">
                     <h2>Flight Information</h2>
@@ -81,7 +84,18 @@
                     </div>
                     <div class="row">
                         <div class="flight-info">
-                            <img src="images/british-airways-logo.png" alt="Company Logo" style="border: 2px solid black; color:#5c5f64;">
+                            <?php 
+                            
+                                if($flight_name == "W9" || $flight_name == "W6") 
+                                    echo "<img src='css/images/WUK.png' alt'Company Logo' style='border: 2px solid black; color:#5c5f64;'>";
+                                else if($flight_name == "U2") 
+                                    echo "<img src='css/images/EZY.png' alt'Company Logo' style='border: 2px solid black; color:#5c5f64;'>";
+                                else if($flight_name == "FR") 
+                                    echo "<img src='css/images/RYR.png' alt'Company Logo' style='border: 2px solid black; color:#5c5f64;'>";
+                                else
+                                    echo "<img src='css/images/noimage.png' alt'Company Logo' style='border: 2px solid black; color:#5c5f64;'>";
+
+                            ?>
                         </div>
                         <div class="flight-details">
                             <p style="color:#5c5f64;">Flight Name: <?php if (!empty($flight_name)) { echo $flight_name; } ?> </p>
