@@ -207,14 +207,15 @@ footer {
 }
 
 .fa-sharp {
-    display: flex;
+    margin-right: auto;
+    margin-left: 75px;
 }
 
 .line {
     width: 90%;
     height: 1px;
     background-color: black;
-    margin: 20px auto; 
+    margin: 10px auto; 
 }
 
 .flight-status {
