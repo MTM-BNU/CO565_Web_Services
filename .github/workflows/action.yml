@@ -1,4 +1,0 @@
-steps:
-  - name: Execute script
-    env:
-      API_KEY: ${{ secrets.SCRIPT_CREDENTIALS }}
