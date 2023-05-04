@@ -89,11 +89,11 @@
                     function drawChart() {
                     var data = google.visualization.arrayToDataTable([
                     ['Delay Time', 'Number of delays today'],
-                    ['30 min',<?php echo $delayArrivals['delay_30'];?>],
-                    ['45 min',<?php echo $delayArrivals['delay_45']; ?>],
-                    ['60 min ',<?php echo $delayArrivals['delay_60']; ?>],
-                    ['75 min',<?php echo $delayArrivals['delay_75']; ?>],
-                    ['90 min',<?php echo $delayArrivals['delay_90']; ?>]
+                    ['30 min',0<?php echo $delayArrivals['delay_30'];?>],
+                    ['45 min',0<?php echo $delayArrivals['delay_45']; ?>],
+                    ['60 min ',0<?php echo $delayArrivals['delay_60']; ?>],
+                    ['75 min',0<?php echo $delayArrivals['delay_75']; ?>],
+                    ['90 min',0<?php echo $delayArrivals['delay_90']; ?>]
                     ]);
 
                     var options = {
@@ -116,11 +116,11 @@
                         function drawChart() {
                         var data = google.visualization.arrayToDataTable([
                           ['Delay Time', 'Number of delays today'],
-                          ['30 min',<?php echo $delayDepartures['delay_30']; ?>],
-                          ['45 min',<?php echo $delayDepartures['delay_45']; ?>],
-                          ['60 min ',<?php echo $delayDepartures['delay_60']; ?>],
-                          ['75 min',<?php echo $delayDepartures['delay_75']; ?>],
-                          ['90 min',<?php echo $delayDepartures['delay_90']; ?>]
+                          ['30 min',0<?php echo $delayDepartures['delay_30']; ?>],
+                          ['45 min',0<?php echo $delayDepartures['delay_45']; ?>],
+                          ['60 min ',0<?php echo $delayDepartures['delay_60']; ?>],
+                          ['75 min',0<?php echo $delayDepartures['delay_75']; ?>],
+                          ['90 min',0<?php echo $delayDepartures['delay_90']; ?>]
                         ]);
                         
                         var options = {
