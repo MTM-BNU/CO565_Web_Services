@@ -1,4 +1,5 @@
 <?php
+
     include 'PHP API scripts/statistics_fetch.php';
 
     $delayArrivals = getDelay(null, null, "arrivals");

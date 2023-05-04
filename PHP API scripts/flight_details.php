@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-$api_key = "28b1cda9-24ff-4c3d-8f83-2195d132f66e";
+$api_key = $_ENV['API_KEY'];
 $flight_iata = isset($_POST['flight_iata']) ? $_POST['flight_iata'] : '';
 
 $url = "https://airlabs.co/api/v9/flight?flight_iata=$flight_iata&api_key=$api_key";

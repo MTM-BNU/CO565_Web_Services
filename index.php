@@ -1,7 +1,11 @@
 <?php
 
-include 'PHP API scripts/arrival_details.php';
-include 'PHP API scripts/departure_details.php';
+	require __DIR__ . '/vendor/autoload.php';
+	use Dotenv\Dotenv;	
+	$dotenv = Dotenv::createImmutable(__DIR__);
+	$dotenv->safeLoad();
+	include 'PHP API scripts/arrival_details.php';
+	include 'PHP API scripts/departure_details.php';
 
 ?>
 
