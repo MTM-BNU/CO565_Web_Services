@@ -1,5 +1,10 @@
 <?php
 
+    require __DIR__ . '/vendor/autoload.php';
+    use Dotenv\Dotenv;	
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->safeLoad();
+
     include 'PHP API scripts/flight_details.php';
     
     if(!isset($_POST['submit']))
@@ -105,7 +110,7 @@
                     </div>
 
             <div class="expected-departure">
-                <p>Expected to Depart at:<?php if (!empty($expected_departure_time)) { echo $expected_departure_time; } ?></p>
+                <p>Expected to Depart at: <?php if (!empty($expected_departure_time)) { echo $expected_departure_time; } ?></p>
                 <i class="fa-sharp fa-solid fa-plane"></i>
                 <div class="line"></div>
             </div>

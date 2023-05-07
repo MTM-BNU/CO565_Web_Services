@@ -74,7 +74,7 @@
 						<form id="search" class="d-flex align-items-center" method="POST" 
 						action="details.php">
 							<div class="box">
-								<input type="text"  name="flight_iata" id="search-bar"  placeholder="Flight No. or Destination">
+								<input type="text"  name="flight_iata" id="search-bar"  placeholder="Flight Number">
 								<button class="btn" type="submit" name="submit"><i class="fa-solid fa-magnifying-glass ml-3" id="icon"></i></button>
 							</div>
 						</form>

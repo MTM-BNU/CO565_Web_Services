@@ -1,7 +1,7 @@
 <?php
 
 	if(isset($_GET['message']))
-		$message = "<h2 style='background-color:white;text-align:center; color:red;'>Flight not found!</h2>";
+		$message = "<h2 style='background-color:white;text-align:center; color:red;'>Flight number not found!</h2>";
 
 ?>
 
@@ -79,7 +79,7 @@
 					<div class="w-100" style="margin-top:5em;">
 						<form id="search" method="post" action="details.php">
 							<div class="box">
-								<input type="text" name="flight_iata" placeholder="Flight search">
+								<input type="text" name="flight_iata" placeholder="Search flight number">
 								<button name="submit" class="btn" type="submit"><i class="fa-solid fa-magnifying-glass ml-3" id="icon"></i></button>
 							</div>
 						</form>

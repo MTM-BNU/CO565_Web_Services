@@ -44,8 +44,5 @@
         $data = json_decode($response, true);
         
         return $data;
-
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
     }
 ?>
