@@ -1,5 +1,6 @@
 <?php
 
+	// Fetch API KEY from environment -> using dotenv PHP
 	require __DIR__ . '/vendor/autoload.php';
 	use Dotenv\Dotenv;	
 	$dotenv = Dotenv::createImmutable(__DIR__);
